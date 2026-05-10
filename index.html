@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Séjour Cosy — votre escapade dans le calme et l'élégance. Guide voyageur complet : check-in, Wi-Fi, recommandations, suppléments.">
+<title>Séjour Cosy · Votre escapade en toute sérénité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23C8553D'/%3E%3Ctext x='50' y='68' font-family='serif' font-style='italic' font-size='56' text-anchor='middle' fill='%23F5EFE6'%3EV%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --terracotta:#C8553D;
+  --terracotta-deep:#9C3D2A;
+  --terracotta-soft:#E8A593;
+  --cream:#F5EFE6;
+  --cream-dark:#EBE3D5;
+  --cream-light:#FBF7F0;
+  --sage:#7A8B6F;
+  --sage-deep:#566B4E;
+  --sage-soft:#A8B5A0;
+  --ink:#2A2520;
+  --ink-soft:#54493F;
+  --ink-faint:#8A7E72;
+  --gold:#B8923E;
+  --gold-soft:#E8B07D;
+  --paper:#FBF7F0;
+  --shadow-xs:0 1px 2px rgba(42,37,32,.04);
+  --shadow-sm:0 4px 14px rgba(42,37,32,.06);
+  --shadow-md:0 8px 28px rgba(42,37,32,.10);
+  --shadow-lg:0 16px 48px rgba(42,37,32,.12);
+  --shadow-xl:0 24px 64px rgba(42,37,32,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+*::selection{background:var(--terracotta);color:var(--cream)}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{
+  font-family:'Manrope',sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.6;
+  font-weight:400;
+  overflow-x:hidden;
+  font-feature-settings:"ss01","ss02","cv11";
+}
+.serif{font-family:'Fraunces',serif;letter-spacing:-0.02em}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+a{color:inherit}
+
+/* Subtle grain overlay */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity:.05;
+  pointer-events:none;
+  z-index:9999;
+  mix-blend-mode:multiply;
+}
+
+/* Skip link a11y */
+.skip-link{
+  position:absolute;left:-9999px;top:0;
+  background:var(--ink);color:var(--cream);
+  padding:12px 20px;border-radius:0 0 8px 0;
+  z-index:10000;
+}
+.skip-link:focus{left:0}
+
+/* ============ NAVIGATION ============ */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,247,240,.85);
+  backdrop-filter:blur(20px) saturate(1.4);
+  -webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid rgba(42,37,32,.06);
+  padding:18px 32px;
+  transition:all .3s;
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+}
+.logo{
+  font-family:'Fraunces',serif;
+  font-size:24px;font-weight:500;
+  letter-spacing:-0.03em;
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;color:var(--ink);
+}
+.logo-mark{
+  width:38px;height:38px;
+  background:var(--terracotta);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cream);
+  font-style:italic;font-size:20px;font-weight:400;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.08), 0 2px 8px rgba(200,85,61,.25);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1);
+}
+.logo:hover .logo-mark{transform:rotate(-12deg) scale(1.05)}
+.logo-name{font-style:italic;font-weight:400}
+.logo-tag{
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--ink-faint);font-weight:600;
+  border-left:1px solid var(--cream-dark);
+  padding-left:12px;margin-left:4px;
+  font-family:'Manrope',sans-serif;
+  font-style:normal;
+}
+@media(max-width:600px){.logo-tag{display:none}}
+
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-link{
+  padding:8px 14px;
+  font-size:13px;font-weight:500;
+  color:var(--ink-soft);
+  text-decoration:none;
+  border-radius:8px;
+  transition:all .2s;
+}
+.nav-link:hover{background:var(--cream);color:var(--ink)}
+@media(max-width:780px){.nav-links{display:none}}
+
+.lang{
+  display:flex;gap:2px;
+  background:var(--cream);
+  padding:3px;border-radius:24px;
+  border:1px solid var(--cream-dark);
+}
+.lang button{
+  border:none;background:transparent;
+  padding:6px 12px;border-radius:20px;
+  font-size:12px;font-weight:600;
+  cursor:pointer;color:var(--ink-soft);
+  letter-spacing:.05em;
+  transition:all .2s;
+}
+.lang button.active{background:var(--ink);color:var(--cream)}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding:60px 32px 100px;
+  background:linear-gradient(168deg,var(--cream-light) 0%,var(--cream) 60%,var(--cream-dark) 100%);
+  overflow:hidden;
+}
+.hero-orb-1{
+  position:absolute;
+  top:-150px;right:-150px;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(200,85,61,.14) 0%,transparent 65%);
+  z-index:0;
+  animation:float 18s ease-in-out infinite;
+}
+.hero-orb-2{
+  position:absolute;
+  bottom:-200px;left:-200px;
+  width:500px;height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(122,139,111,.18) 0%,transparent 65%);
+  z-index:0;
+  animation:float 22s ease-in-out infinite reverse;
+}
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  50%{transform:translate(30px,-20px) scale(1.05)}
+}
+
+.hero-content{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1.15fr .85fr;gap:80px;
+  align-items:center;
+}
+
+.hero-text{animation:slideUp .9s cubic-bezier(.2,.8,.2,1)}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:700;
+  margin-bottom:28px;
+}
+.eyebrow::before,.eyebrow::after{
+  content:'';width:24px;height:1px;background:var(--terracotta);
+  opacity:.5;
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(48px,8vw,104px);
+  font-weight:300;
+  line-height:0.96;
+  letter-spacing:-0.045em;
+  margin-bottom:32px;
+  color:var(--ink);
+  font-variation-settings:"opsz" 144,"SOFT" 50;
+}
+.hero h1 .accent{
+  font-style:italic;font-weight:400;
+  color:var(--terracotta);
+  font-variation-settings:"opsz" 144,"SOFT" 100;
+  position:relative;
+  display:inline-block;
+}
+.hero h1 .accent::after{
+  content:'';
+  position:absolute;
+  bottom:-2px;left:0;
+  width:100%;height:4px;
+  background:linear-gradient(90deg,transparent,var(--terracotta-soft) 30%,var(--terracotta-soft) 70%,transparent);
+  opacity:.4;
+  border-radius:2px;
+}
+.hero-sub{
+  font-size:18px;
+  color:var(--ink-soft);
+  max-width:520px;
+  margin-bottom:40px;
+  line-height:1.7;
+  font-weight:400;
+}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:15px 28px;
+  border:none;border-radius:999px;
+  font-family:inherit;font-size:14px;font-weight:600;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:all .25s cubic-bezier(.2,.8,.2,1);
+  text-decoration:none;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:var(--ink);
+  color:var(--cream);
+  box-shadow:0 4px 14px rgba(42,37,32,.18);
+}
+.btn-primary:hover{
+  background:var(--terracotta);
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(200,85,61,.3);
+}
+.btn-primary svg{transition:transform .25s}
+.btn-primary:hover svg{transform:translateX(4px)}
+.btn-ghost{
+  background:transparent;
+  color:var(--ink);
+  border:1px solid var(--ink);
+}
+.btn-ghost:hover{background:var(--ink);color:var(--cream)}
+
+.hero-stats{
+  display:flex;gap:48px;
+  padding-top:32px;
+  border-top:1px solid var(--cream-dark);
+}
+.stat-num{
+  font-family:'Fraunces',serif;
+  font-size:36px;font-weight:400;font-style:italic;
+  color:var(--terracotta);line-height:1;
+  margin-bottom:6px;
+}
+.stat-label{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:600;
+}
+
+/* Hero card */
+.hero-card{
+  background:var(--paper);
+  border-radius:28px;
+  padding:40px;
+  box-shadow:var(--shadow-xl);
+  position:relative;
+  animation:slideUp .9s cubic-bezier(.2,.8,.2,1) .15s both;
+  border:1px solid rgba(42,37,32,.05);
+}
+.hero-card::before{
+  content:'';position:absolute;
+  top:-1px;left:24px;right:24px;height:2px;
+  background:linear-gradient(90deg,transparent,var(--terracotta),transparent);
+  border-radius:2px;
+}
+.card-eyebrow{
+  display:flex;align-items:center;gap:8px;
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--terracotta);font-weight:700;
+  margin-bottom:10px;
+}
+.card-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--terracotta);
+  box-shadow:0 0 0 4px rgba(200,85,61,.15);
+}
+.card-title{
+  font-family:'Fraunces',serif;
+  font-size:28px;font-weight:400;
+  letter-spacing:-0.02em;
+  margin-bottom:6px;
+}
+.card-desc{
+  font-size:14px;color:var(--ink-soft);
+  margin-bottom:28px;
+}
+.guest-form .field{margin-bottom:18px}
+.guest-form .field-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.guest-form label{
+  display:block;font-size:11px;font-weight:600;
+  color:var(--ink-soft);margin-bottom:7px;
+  letter-spacing:.08em;text-transform:uppercase;
+}
+.guest-form input{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid var(--cream-dark);
+  border-radius:12px;
+  font-family:inherit;font-size:14.5px;
+  background:var(--cream-light);
+  color:var(--ink);
+  transition:all .2s;
+}
+.guest-form input:focus{
+  outline:none;
+  border-color:var(--terracotta);
+  background:var(--paper);
+  box-shadow:0 0 0 4px rgba(200,85,61,.1);
+}
+.guest-form input::placeholder{color:var(--ink-faint)}
+.btn-form{
+  width:100%;
+  padding:15px;
+  background:var(--ink);
+  color:var(--cream);
+  border:none;border-radius:12px;
+  font-family:inherit;font-size:14px;font-weight:600;
+  letter-spacing:.04em;
+  cursor:pointer;
+  transition:all .25s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:8px;
+}
+.btn-form:hover{background:var(--terracotta)}
+.guest-saved{
+  display:none;margin-top:14px;
+  padding:12px 14px;
+  background:rgba(122,139,111,.12);
+  border:1px solid rgba(122,139,111,.25);
+  border-radius:10px;
+  font-size:13px;color:var(--sage-deep);
+  font-weight:500;
+}
+.guest-saved.show{display:block;animation:fadeIn .4s}
+
+@keyframes slideUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* ============ MARQUEE ============ */
+.marquee{
+  background:var(--ink);
+  color:var(--cream);
+  padding:18px 0;
+  overflow:hidden;
+  position:relative;
+}
+.marquee-track{
+  display:flex;gap:64px;
+  animation:scroll 28s linear infinite;
+  white-space:nowrap;
+  width:max-content;
+}
+.marquee-item{
+  display:flex;align-items:center;gap:12px;
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:18px;font-weight:300;
+  letter-spacing:.01em;
+}
+.marquee-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--terracotta);
+  flex-shrink:0;
+}
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ============ JOURNEY / TIMELINE ============ */
+.journey{
+  padding:140px 32px;
+  max-width:1280px;margin:0 auto;
+  position:relative;
+}
+.section-head{
+  margin-bottom:80px;
+  max-width:680px;
+}
+.section-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.section-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--sage-deep);font-weight:700;
+  margin-bottom:20px;
+}
+.section-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--sage);
+}
+.section-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(36px,5.5vw,64px);
+  font-weight:300;
+  letter-spacing:-0.035em;
+  line-height:1.0;
+  margin-bottom:24px;
+  color:var(--ink);
+}
+.section-title em{
+  font-style:italic;
+  color:var(--terracotta);
+  font-weight:400;
+}
+.section-desc{
+  font-size:17px;color:var(--ink-soft);
+  line-height:1.65;
+}
+
+.timeline{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;position:relative;
+}
+.timeline::before{
+  content:'';position:absolute;
+  top:46px;left:14%;right:14%;height:2px;
+  background:repeating-linear-gradient(90deg,var(--cream-dark) 0,var(--cream-dark) 4px,transparent 4px,transparent 10px);
+  z-index:0;
+}
+.step{
+  text-align:center;padding:0 24px;
+  position:relative;z-index:1;
+}
+.step-num{
+  width:96px;height:96px;
+  background:var(--paper);
+  border:2px solid var(--terracotta);
+  border-radius:50%;
+  margin:0 auto 28px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Fraunces',serif;
+  font-size:36px;font-style:italic;font-weight:400;
+  color:var(--terracotta);
+  box-shadow:0 8px 24px rgba(200,85,61,.12);
+  transition:all .35s cubic-bezier(.34,1.3,.64,1);
+}
+.step:hover .step-num{
+  background:var(--terracotta);
+  color:var(--cream);
+  transform:rotate(-8deg) scale(1.08);
+  box-shadow:0 16px 40px rgba(200,85,61,.3);
+}
+.step h3{
+  font-family:'Fraunces',serif;
+  font-size:24px;font-weight:500;
+  margin-bottom:12px;letter-spacing:-0.015em;
+}
+.step p{
+  color:var(--ink-soft);
+  font-size:14.5px;
+  line-height:1.65;
+  max-width:280px;margin:0 auto;
+}
+.step-time{
+  display:inline-block;
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--sage-deep);font-weight:700;
+  margin-top:18px;
+  padding:5px 12px;
+  background:rgba(122,139,111,.12);
+  border-radius:20px;
+}
+
+/* ============ CHECK-IN DARK SECTION ============ */
+.checkin{
+  background:var(--ink);
+  color:var(--cream);
+  padding:140px 32px;
+  position:relative;
+  overflow:hidden;
+}
+.checkin::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;width:700px;height:700px;
+  background:radial-gradient(circle,rgba(200,85,61,.18) 0%,transparent 65%);
+  border-radius:50%;
+}
+.checkin::after{
+  content:'';position:absolute;
+  bottom:-150px;left:-150px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(232,176,125,.10) 0%,transparent 65%);
+  border-radius:50%;
+}
+.checkin-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center;
+  position:relative;z-index:1;
+}
+.checkin h2{
+  font-family:'Fraunces',serif;
+  font-size:clamp(36px,5vw,60px);
+  font-weight:300;line-height:1.0;
+  letter-spacing:-0.035em;margin-bottom:28px;
+}
+.checkin h2 em{font-style:italic;color:var(--gold-soft);font-weight:400}
+.checkin-desc{
+  color:rgba(245,239,230,.72);
+  font-size:17px;
+  margin-bottom:40px;
+  line-height:1.7;
+  max-width:480px;
+}
+.info-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+  max-width:520px;
+}
+.info-tile{
+  background:rgba(245,239,230,.04);
+  border:1px solid rgba(245,239,230,.1);
+  border-radius:18px;
+  padding:24px;
+  backdrop-filter:blur(10px);
+  transition:all .3s;
+  cursor:default;
+}
+.info-tile:hover{
+  border-color:var(--terracotta);
+  transform:translateY(-3px);
+  background:rgba(245,239,230,.06);
+}
+.info-icon{
+  width:42px;height:42px;
+  background:var(--terracotta);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;
+  box-shadow:0 4px 12px rgba(200,85,61,.3);
+}
+.info-tile-label{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(245,239,230,.55);font-weight:700;margin-bottom:6px;
+}
+.info-tile-value{
+  font-family:'Fraunces',serif;
+  font-size:22px;font-weight:400;
+  letter-spacing:-0.01em;
+}
+
+.checkin-visual{
+  background:linear-gradient(135deg,#3a3128 0%,#2a2520 100%);
+  border-radius:28px;
+  padding:48px;
+  border:1px solid rgba(245,239,230,.08);
+  position:relative;
+  overflow:hidden;
+}
+.checkin-visual::before{
+  content:'';position:absolute;
+  top:0;left:24px;right:24px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-soft),transparent);
+  opacity:.4;
+}
+.code-display{
+  font-size:11px;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(245,239,230,.55);
+  margin-bottom:14px;font-weight:700;
+  display:flex;align-items:center;gap:8px;
+}
+.code-display::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--gold-soft);
+}
+.code-value{
+  font-family:'Fraunces',serif;
+  font-size:72px;font-weight:300;letter-spacing:.06em;
+  color:var(--gold-soft);
+  margin-bottom:36px;
+  line-height:1;
+  display:flex;gap:14px;
+}
+.code-digit{
+  display:inline-block;
+  background:rgba(232,176,125,.08);
+  border:1px solid rgba(232,176,125,.15);
+  border-radius:14px;
+  padding:14px 24px;
+  min-width:72px;
+  text-align:center;
+  transition:all .3s;
+}
+.code-digit:hover{
+  background:rgba(232,176,125,.18);
+  transform:translateY(-2px);
+}
+.code-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(245,239,230,.15),transparent);
+  margin:28px 0;
+}
+.address-block{margin-top:8px}
+.address-text{
+  font-family:'Fraunces',serif;
+  font-size:24px;line-height:1.35;
+  color:var(--cream);
+  font-weight:400;
+  letter-spacing:-0.01em;
+}
+.address-precision{
+  font-style:italic;
+  font-size:14px;
+  color:rgba(245,239,230,.6);
+  margin-top:4px;
+}
+.action-row{
+  display:flex;gap:12px;margin-top:24px;
+}
+.action-btn{
+  flex:1;
+  padding:13px;
+  background:rgba(232,176,125,.12);
+  border:1px solid rgba(232,176,125,.25);
+  border-radius:12px;
+  color:var(--gold-soft);
+  text-decoration:none;text-align:center;
+  font-size:13px;font-weight:600;
+  letter-spacing:.02em;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .2s;
+}
+.action-btn:hover{
+  background:rgba(232,176,125,.22);
+  border-color:var(--gold-soft);
+}
+
+/* ============ FAQ ============ */
+.faq{
+  padding:140px 32px;
+  max-width:1000px;margin:0 auto;
+}
+.faq-search{
+  position:relative;margin-bottom:24px;
+}
+.faq-search input{
+  width:100%;
+  padding:18px 24px 18px 58px;
+  border:1px solid var(--cream-dark);
+  background:var(--paper);
+  border-radius:16px;
+  font-family:inherit;font-size:16px;
+  color:var(--ink);
+  transition:all .2s;
+  box-shadow:var(--shadow-xs);
+}
+.faq-search input:focus{
+  outline:none;border-color:var(--terracotta);
+  box-shadow:0 0 0 4px rgba(200,85,61,.08);
+}
+.faq-search svg{
+  position:absolute;left:22px;top:50%;
+  transform:translateY(-50%);
+  color:var(--ink-faint);
+}
+.faq-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:24px;
+  font-size:12px;color:var(--ink-faint);
+  letter-spacing:.05em;
+}
+.faq-categories{
+  display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;
+}
+.cat-chip{
+  padding:9px 18px;
+  border:1px solid var(--cream-dark);
+  background:var(--paper);
+  border-radius:30px;
+  font-family:inherit;font-size:13px;font-weight:500;
+  color:var(--ink-soft);cursor:pointer;
+  transition:all .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.cat-chip:hover{
+  border-color:var(--terracotta);
+  color:var(--terracotta);
+  transform:translateY(-1px);
+}
+.cat-chip.active{
+  background:var(--ink);color:var(--cream);
+  border-color:var(--ink);
+  box-shadow:0 4px 12px rgba(42,37,32,.15);
+}
+.cat-count{
+  font-size:10px;
+  background:rgba(255,255,255,.15);
+  padding:2px 7px;
+  border-radius:10px;
+  font-weight:600;
+}
+.cat-chip:not(.active) .cat-count{
+  background:var(--cream-dark);color:var(--ink-soft);
+}
+
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{
+  background:var(--paper);
+  border:1px solid var(--cream-dark);
+  border-radius:18px;
+  overflow:hidden;
+  transition:all .25s;
+}
+.faq-item:hover{
+  border-color:rgba(200,85,61,.3);
+  transform:translateY(-1px);
+  box-shadow:var(--shadow-sm);
+}
+.faq-item.open{
+  border-color:var(--terracotta);
+  box-shadow:var(--shadow-md);
+  background:linear-gradient(180deg,var(--paper) 0%,var(--cream-light) 100%);
+}
+.faq-q{
+  width:100%;
+  padding:22px 28px;
+  background:transparent;border:none;
+  text-align:left;cursor:pointer;
+  font-family:inherit;font-size:16px;font-weight:500;
+  color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  letter-spacing:-0.005em;
+}
+.faq-q-icon{
+  flex-shrink:0;width:32px;height:32px;
+  border-radius:50%;background:var(--cream);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .3s cubic-bezier(.34,1.3,.64,1);
+  color:var(--ink);
+}
+.faq-item.open .faq-q-icon{
+  background:var(--terracotta);
+  transform:rotate(135deg);
+  color:var(--cream);
+}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height .4s ease,padding .4s ease;
+}
+.faq-item.open .faq-a{
+  max-height:600px;padding:0 28px 26px;
+}
+.faq-a p{
+  color:var(--ink-soft);
+  line-height:1.75;
+  font-size:15px;
+}
+.faq-tag{
+  display:inline-block;
+  font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:700;color:var(--sage-deep);
+  background:rgba(122,139,111,.12);
+  padding:3px 9px;border-radius:6px;
+  margin-right:10px;
+  vertical-align:middle;
+}
+.faq-empty{
+  text-align:center;padding:48px 24px;
+  color:var(--ink-soft);font-style:italic;
+  font-family:'Fraunces',serif;font-size:18px;
+}
+.faq-cta{
+  margin-top:36px;
+  padding:32px;
+  background:linear-gradient(135deg,var(--cream) 0%,var(--cream-dark) 100%);
+  border-radius:18px;
+  text-align:center;
+  border:1px dashed rgba(200,85,61,.25);
+}
+.faq-cta-title{
+  font-family:'Fraunces',serif;font-size:22px;font-weight:500;
+  margin-bottom:8px;
+}
+.faq-cta-desc{
+  color:var(--ink-soft);font-size:14px;
+  margin-bottom:20px;
+}
+
+/* ============ PAYMENT ============ */
+.payment{
+  background:linear-gradient(180deg,var(--cream) 0%,var(--cream-dark) 100%);
+  padding:140px 32px;
+  position:relative;overflow:hidden;
+}
+.payment::before{
+  content:'';position:absolute;
+  top:50%;right:-300px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(200,85,61,.10) 0%,transparent 65%);
+  border-radius:50%;
+  transform:translateY(-50%);
+}
+.payment-inner{
+  max-width:1180px;margin:0 auto;
+  position:relative;z-index:2;
+}
+.payment-grid{
+  display:grid;grid-template-columns:1fr 1.05fr;gap:60px;align-items:start;
+  margin-top:60px;
+}
+.calculator{
+  background:var(--paper);
+  border-radius:28px;
+  padding:44px;
+  box-shadow:var(--shadow-lg);
+  border:1px solid rgba(42,37,32,.05);
+}
+.calc-title{
+  font-family:'Fraunces',serif;
+  font-size:28px;font-weight:500;
+  letter-spacing:-0.02em;
+  margin-bottom:8px;
+}
+.calc-sub{
+  color:var(--ink-soft);
+  font-size:14px;margin-bottom:32px;
+}
+.option-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;
+  border-bottom:1px solid var(--cream-dark);
+  cursor:pointer;
+  transition:all .2s;
+  gap:16px;
+}
+.option-row:last-of-type{border-bottom:none}
+.option-row:hover{padding-left:6px}
+.option-row.selected{
+  padding-left:6px;
+}
+.option-info{flex:1;min-width:0}
+.option-name{
+  font-weight:600;font-size:15px;
+  margin-bottom:3px;
+  color:var(--ink);
+}
+.option-desc{
+  font-size:13px;color:var(--ink-soft);
+  font-style:italic;
+}
+.option-price{
+  font-family:'Fraunces',serif;
+  font-size:22px;font-weight:500;
+  color:var(--terracotta);
+  font-variant-numeric:tabular-nums;
+  white-space:nowrap;
+}
+.toggle{
+  position:relative;width:46px;height:26px;
+  background:var(--cream-dark);
+  border-radius:13px;cursor:pointer;
+  transition:background .25s;
+  flex-shrink:0;
+}
+.toggle.on{background:var(--terracotta)}
+.toggle::after{
+  content:'';position:absolute;
+  top:3px;left:3px;width:20px;height:20px;
+  background:var(--paper);border-radius:50%;
+  transition:transform .25s cubic-bezier(.34,1.3,.64,1);
+  box-shadow:0 2px 4px rgba(0,0,0,.15);
+}
+.toggle.on::after{transform:translateX(20px)}
+.qty-row{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.qty-btn{
+  width:30px;height:30px;
+  border:1px solid var(--cream-dark);
+  background:var(--paper);
+  border-radius:8px;
+  font-family:inherit;font-size:14px;font-weight:600;
+  color:var(--ink);cursor:pointer;
+  transition:all .2s;
+}
+.qty-btn:hover{
+  background:var(--terracotta);color:var(--cream);border-color:var(--terracotta);
+  transform:scale(1.05);
+}
+.qty-val{
+  font-weight:700;min-width:22px;text-align:center;
+  font-variant-numeric:tabular-nums;
+}
+.calc-total{
+  margin-top:32px;padding-top:28px;
+  border-top:2px solid var(--ink);
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.calc-total-label{
+  font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-soft);font-weight:700;
+}
+.calc-total-items{
+  font-size:12px;color:var(--ink-faint);
+  margin-top:4px;line-height:1.5;
+  max-width:240px;
+}
+.calc-total-val{
+  font-family:'Fraunces',serif;
+  font-size:48px;font-weight:400;
+  color:var(--ink);
+  line-height:1;
+  letter-spacing:-0.02em;
+  font-variant-numeric:tabular-nums;
+  transition:color .25s;
+}
+.calc-total-val.has-amount{color:var(--terracotta)}
+
+/* Bank card */
+.bank-card{
+  background:linear-gradient(135deg,var(--terracotta) 0%,var(--terracotta-deep) 100%);
+  border-radius:28px;
+  padding:44px;
+  color:var(--cream);
+  box-shadow:var(--shadow-xl);
+  position:relative;overflow:hidden;
+}
+.bank-card::before{
+  content:'';position:absolute;
+  top:-100px;right:-100px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(255,255,255,.18) 0%,transparent 65%);
+  border-radius:50%;
+}
+.bank-card::after{
+  content:'';position:absolute;
+  bottom:-120px;left:-120px;width:320px;height:320px;
+  background:radial-gradient(circle,rgba(0,0,0,.15) 0%,transparent 65%);
+  border-radius:50%;
+}
+.bank-card-inner{position:relative;z-index:1}
+.bank-eyebrow{
+  font-size:10px;letter-spacing:.25em;text-transform:uppercase;
+  opacity:.85;font-weight:700;margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
+.bank-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--cream);
+  box-shadow:0 0 0 4px rgba(245,239,230,.2);
+}
+.bank-title{
+  font-family:'Fraunces',serif;
+  font-size:32px;font-weight:400;
+  margin-bottom:36px;
+  letter-spacing:-0.02em;
+}
+.iban-row{
+  background:rgba(255,255,255,.1);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:18px 20px;
+  margin-bottom:12px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;
+  transition:all .2s;
+}
+.iban-row:hover{background:rgba(255,255,255,.14)}
+.iban-row-info{flex:1;min-width:0}
+.iban-label{
+  font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+  opacity:.75;margin-bottom:5px;font-weight:700;
+}
+.iban-value{
+  font-family:'Fraunces',serif;
+  font-size:16px;font-weight:500;
+  letter-spacing:.04em;
+  word-break:break-all;
+  font-variant-numeric:tabular-nums;
+}
+.iban-copy{
+  background:rgba(255,255,255,.18);
+  border:none;color:var(--cream);
+  padding:8px 14px;border-radius:8px;
+  font-family:inherit;font-size:12px;font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+  flex-shrink:0;
+  letter-spacing:.02em;
+}
+.iban-copy:hover{
+  background:rgba(255,255,255,.3);
+  transform:scale(1.05);
+}
+.iban-copy.copied{background:var(--sage);color:var(--cream)}
+
+.ref-box{
+  margin-top:24px;
+  background:rgba(0,0,0,.22);
+  border-radius:16px;
+  padding:22px;
+  border:1px dashed rgba(255,255,255,.2);
+}
+.ref-label{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  opacity:.75;margin-bottom:8px;font-weight:700;
+}
+.ref-value{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:24px;font-weight:400;
+  line-height:1.3;
+  word-break:break-word;
+}
+.ref-note{
+  font-size:12px;opacity:.8;
+  margin-top:12px;line-height:1.55;
+  display:flex;align-items:flex-start;gap:8px;
+}
+.ref-note-icon{flex-shrink:0;margin-top:2px}
+.ref-copy-full{
+  margin-top:14px;width:100%;
+  padding:11px;
+  background:rgba(255,255,255,.18);
+  border:none;color:var(--cream);
+  border-radius:10px;
+  font-family:inherit;font-size:13px;font-weight:600;
+  cursor:pointer;
+  transition:all .2s;
+  letter-spacing:.02em;
+}
+.ref-copy-full:hover{background:rgba(255,255,255,.28)}
+.ref-copy-full.copied{background:var(--sage)}
+
+.bank-confirm{
+  margin-top:24px;font-size:13px;opacity:.88;
+  line-height:1.65;display:flex;align-items:flex-start;gap:8px;
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  background:var(--ink);
+  color:rgba(245,239,230,.7);
+  padding:80px 32px 40px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.footer::before{
+  content:'';position:absolute;
+  top:0;left:50%;transform:translateX(-50%);
+  width:200px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--terracotta),transparent);
+}
+.footer-inner{max-width:800px;margin:0 auto;position:relative}
+.footer-mark{
+  width:48px;height:48px;
+  background:var(--terracotta);
+  border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--cream);
+  font-family:'Fraunces',serif;font-style:italic;font-size:24px;
+  margin:0 auto 28px;
+  box-shadow:inset 0 -2px 0 rgba(0,0,0,.15), 0 8px 24px rgba(200,85,61,.3);
+}
+.footer-quote{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:26px;font-weight:300;
+  color:var(--cream);
+  line-height:1.4;letter-spacing:-0.015em;
+  margin-bottom:36px;
+  padding:0 20px;
+}
+.footer-quote::before,.footer-quote::after{
+  content:'"';color:var(--gold-soft);font-size:40px;
+  vertical-align:-8px;
+}
+.footer-contact{
+  display:flex;gap:32px;justify-content:center;flex-wrap:wrap;
+  margin-bottom:36px;font-size:14px;
+}
+.footer-contact a{
+  color:var(--cream);text-decoration:none;
+  border-bottom:1px solid rgba(232,176,125,.3);
+  padding-bottom:3px;transition:all .2s;
+}
+.footer-contact a:hover{
+  border-color:var(--gold-soft);color:var(--gold-soft);
+}
+.footer-divider{
+  width:80px;height:1px;
+  background:rgba(245,239,230,.15);
+  margin:0 auto 24px;
+}
+.footer-fine{font-size:12px;opacity:.5;letter-spacing:.04em}
+.footer-fine a{color:inherit}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:980px){
+  .hero{padding:40px 24px 80px}
+  .hero-content{grid-template-columns:1fr;gap:48px}
+  .timeline{grid-template-columns:1fr;gap:48px}
+  .timeline::before{display:none}
+  .checkin{padding:100px 24px}
+  .checkin-inner{grid-template-columns:1fr;gap:60px}
+  .info-grid{max-width:100%}
+  .checkin-visual{padding:36px}
+  .code-value{font-size:56px}
+  .code-digit{padding:12px 18px;min-width:60px}
+  .faq{padding:100px 24px}
+  .payment{padding:100px 24px}
+  .payment-grid{grid-template-columns:1fr;gap:36px}
+}
+@media (max-width:640px){
+  .nav{padding:14px 20px}
+  .hero h1{font-size:48px}
+  .hero-stats{gap:32px}
+  .hero-card{padding:28px}
+  .guest-form .field-row{grid-template-columns:1fr}
+  .info-grid{grid-template-columns:1fr 1fr}
+  .info-tile{padding:18px}
+  .info-tile-value{font-size:18px}
+  .checkin-visual{padding:28px}
+  .code-value{font-size:42px;gap:8px}
+  .code-digit{padding:10px 14px;min-width:50px}
+  .calculator,.bank-card{padding:28px}
+  .calc-total-val{font-size:38px}
+  .footer-quote{font-size:20px}
+  .footer-contact{gap:20px;font-size:13px}
+}
+@media (max-width:420px){
+  .info-grid{grid-template-columns:1fr}
+  .hero h1{font-size:42px}
+  .iban-row{flex-wrap:wrap}
+  .iban-copy{width:100%;margin-top:8px}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Aller au contenu</a>
+
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">SC</span>
+      <span class="logo-name">Séjour Cosy</span>
+      <span class="logo-tag">Cosy escape</span>
+    </a>
+    <div class="nav-links">
+      <a href="#parcours" class="nav-link">Parcours</a>
+      <a href="#checkin" class="nav-link">Check-in</a>
+      <a href="#faq" class="nav-link">Questions</a>
+      <a href="#paiement" class="nav-link">Suppléments</a>
+    </div>
+    <div class="lang">
+      <button class="active" onclick="setLang('fr',this)">FR</button>
+      <button onclick="setLang('en',this)">EN</button>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-orb-1"></div>
+  <div class="hero-orb-2"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="eyebrow">Bienvenue chez Séjour Cosy</div>
+      <h1>Votre séjour,<br><span class="accent">en toute sérénité.</span></h1>
+      <p class="hero-sub">
+        Un appartement pensé comme un cocon — calme, élégant, raffiné dans chaque détail.
+        Tout ce qu'il vous faut pour vivre votre escapade pleinement, réuni en un seul endroit.
+      </p>
+      <div class="hero-actions">
+        <a href="#parcours" class="btn btn-primary">
+          Découvrir le séjour
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#faq" class="btn btn-ghost">Questions fréquentes</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">24/7</div>
+          <div class="stat-label">Hôte joignable</div>
+        </div>
+        <div>
+          <div class="stat-num">‹3 min</div>
+          <div class="stat-label">Métro le plus proche</div>
+        </div>
+        <div>
+          <div class="stat-num">100 %</div>
+          <div class="stat-label">Autonomie d'accès</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-card" aria-label="Identification voyageur">
+      <div class="card-eyebrow">Confirmez votre arrivée</div>
+      <div class="card-title">Identifiez-vous</div>
+      <p class="card-desc">Renseignez vos informations pour personnaliser votre référence de paiement et retrouver vos données à chaque visite.</p>
+      <form class="guest-form" onsubmit="handleCheckin(event)">
+        <div class="field">
+          <label for="guest-name">Nom complet</label>
+          <input type="text" id="guest-name" required placeholder="Marie Dupont" autocomplete="name">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="guest-ref">N° de réservation</label>
+            <input type="text" id="guest-ref" required placeholder="HM-1234XY">
+          </div>
+          <div class="field">
+            <label for="guest-date">Date d'arrivée</label>
+            <input type="date" id="guest-date" required>
+          </div>
+        </div>
+        <button type="submit" class="btn-form">
+          Accéder à mes infos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </form>
+      <div id="guest-saved" class="guest-saved" role="status">
+        <span style="margin-right:6px">✓</span><span id="guest-saved-text">Informations enregistrées en toute sécurité.</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+    <span class="marquee-item">Calme italien <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Linge de qualité hôtelière <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Wi-Fi haut débit <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Café de spécialité <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Accueil 24 h sur 24 <span class="marquee-dot"></span></span>
+    <span class="marquee-item">Quartier vivant <span class="marquee-dot"></span></span>
+  </div>
+</div>
+
+<!-- ============ JOURNEY ============ -->
+<section id="parcours" class="journey">
+  <div class="section-head center">
+    <div class="section-eyebrow">Votre parcours en trois temps</div>
+    <h2 class="section-title">L'art du <em>séjour réussi</em>.</h2>
+    <p class="section-desc">Trois étapes simples, pensées pour que vous profitiez pleinement de votre escapade — du premier message au dernier au revoir.</p>
+  </div>
+
+  <div class="timeline">
+    <article class="step">
+      <div class="step-num">i</div>
+      <h3>Avant l'arrivée</h3>
+      <p>La veille de votre arrivée, vous recevez le code d'accès et toutes les instructions précises pour entrer en autonomie.</p>
+      <span class="step-time">J–1 · 18h</span>
+    </article>
+    <article class="step">
+      <div class="step-num">ii</div>
+      <h3>Pendant le séjour</h3>
+      <p>Réponses 24/7 aux questions courantes, et messagerie directe avec votre hôte au moindre besoin.</p>
+      <span class="step-time">À tout moment</span>
+    </article>
+    <article class="step">
+      <div class="step-num">iii</div>
+      <h3>Après le départ</h3>
+      <p>Un mot attentionné, le récapitulatif de votre séjour, et l'invitation à partager votre expérience.</p>
+      <span class="step-time">J+1 · 10h</span>
+    </article>
+  </div>
+</section>
+
+<!-- ============ CHECK-IN ============ -->
+<section id="checkin" class="checkin">
+  <div class="checkin-inner">
+    <div>
+      <div class="eyebrow" style="color:var(--gold-soft)">Informations clés</div>
+      <h2>Tout ce qu'il vous faut pour un <em>check-in fluide</em>.</h2>
+      <p class="checkin-desc">L'arrivée se fait en autonomie complète. Le code d'entrée, l'adresse précise, les horaires — tout est ici, à portée de main.</p>
+      <div class="info-grid">
+        <div class="info-tile">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="info-tile-label">Check-in</div>
+          <div class="info-tile-value">À partir de 16h</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="info-tile-label">Check-out</div>
+          <div class="info-tile-value">Jusqu'à 11h</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </div>
+          <div class="info-tile-label">Wi-Fi</div>
+          <div class="info-tile-value">SejourCosy_Guest</div>
+        </div>
+        <div class="info-tile">
+          <div class="info-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="info-tile-label">Adresse</div>
+          <div class="info-tile-value">Centre-ville</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="checkin-visual">
+      <div class="code-display">Code de la boîte à clés</div>
+      <div class="code-value" aria-label="Code 8 4 2 6">
+        <span class="code-digit">8</span>
+        <span class="code-digit">4</span>
+        <span class="code-digit">2</span>
+        <span class="code-digit">6</span>
+      </div>
+
+      <div class="code-divider"></div>
+
+      <div class="address-block">
+        <div class="code-display">Adresse précise</div>
+        <div class="address-text">12 rue des Lilas</div>
+        <div class="address-precision">Bâtiment B · 3ᵉ étage · Porte droite</div>
+      </div>
+
+      <div class="action-row">
+        <a href="#" class="action-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          Itinéraire
+        </a>
+        <a href="#" class="action-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Contacter l'hôte
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="faq">
+  <div class="section-head center">
+    <div class="section-eyebrow">Questions fréquentes</div>
+    <h2 class="section-title">Toutes vos <em>réponses</em>, instantanément.</h2>
+    <p class="section-desc">Une base de connaissances complète, mise à jour en permanence à partir des questions les plus posées par nos voyageurs.</p>
+  </div>
+
+  <div class="faq-search">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input type="text" id="faq-input" placeholder="Tapez votre question (Wi-Fi, parking, animaux…)" aria-label="Rechercher dans les questions" oninput="filterFaq()">
+  </div>
+
+  <div class="faq-meta">
+    <span id="faq-count">22 réponses disponibles</span>
+    <span id="faq-active-cat">Toutes catégories</span>
+  </div>
+
+  <div class="faq-categories" id="faq-cats" role="tablist">
+    <button class="cat-chip active" onclick="setCategory('all',this)" data-cat="all">Tous <span class="cat-count" data-count="all">22</span></button>
+    <button class="cat-chip" onclick="setCategory('arrivee',this)" data-cat="arrivee">Arrivée <span class="cat-count" data-count="arrivee">4</span></button>
+    <button class="cat-chip" onclick="setCategory('logement',this)" data-cat="logement">Logement <span class="cat-count" data-count="logement">6</span></button>
+    <button class="cat-chip" onclick="setCategory('quartier',this)" data-cat="quartier">Quartier <span class="cat-count" data-count="quartier">4</span></button>
+    <button class="cat-chip" onclick="setCategory('depart',this)" data-cat="depart">Départ <span class="cat-count" data-count="depart">4</span></button>
+    <button class="cat-chip" onclick="setCategory('paiement',this)" data-cat="paiement">Paiement <span class="cat-count" data-count="paiement">4</span></button>
+  </div>
+
+  <div class="faq-list" id="faq-list"></div>
+  <div class="faq-empty" id="faq-empty" style="display:none">— Aucune réponse trouvée —</div>
+
+  <div class="faq-cta">
+    <div class="faq-cta-title">Pas trouvé votre réponse ?</div>
+    <div class="faq-cta-desc">Envoyez-nous un message via Airbnb ou Booking, nous vous répondons dans l'heure.</div>
+    <a href="#" class="btn btn-primary">
+      Contacter l'hôte
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ============ PAYMENT ============ -->
+<section id="paiement" class="payment">
+  <div class="payment-inner">
+    <div class="section-head center" style="margin-bottom:0">
+      <div class="section-eyebrow">Suppléments & extras</div>
+      <h2 class="section-title">Personnalisez <em>votre séjour</em>.</h2>
+      <p class="section-desc">Ménage supplémentaire, départ tardif, panier d'arrivée — calculez votre supplément et réglez par virement bancaire en toute simplicité.</p>
+    </div>
+
+    <div class="payment-grid">
+      <!-- CALCULATOR -->
+      <div class="calculator">
+        <div class="calc-title">Calculateur</div>
+        <div class="calc-sub">Sélectionnez les options souhaitées</div>
+
+        <div class="option-row" data-price="35" data-name="Ménage supplémentaire">
+          <div class="option-info">
+            <div class="option-name">Ménage supplémentaire</div>
+            <div class="option-desc">Pendant votre séjour</div>
+          </div>
+          <div class="option-price">35 €</div>
+          <div class="toggle" onclick="togToggle(this)" role="switch" aria-checked="false" tabindex="0"></div>
+        </div>
+
+        <div class="option-row" data-price="25" data-name="Late check-out">
+          <div class="option-info">
+            <div class="option-name">Late check-out</div>
+            <div class="option-desc">Départ jusqu'à 14h</div>
+          </div>
+          <div class="option-price">25 €</div>
+          <div class="toggle" onclick="togToggle(this)" role="switch" aria-checked="false" tabindex="0"></div>
+        </div>
+
+        <div class="option-row" data-price="20" data-name="Early check-in">
+          <div class="option-info">
+            <div class="option-name">Early check-in</div>
+            <div class="option-desc">Arrivée dès 12h</div>
+          </div>
+          <div class="option-price">20 €</div>
+          <div class="toggle" onclick="togToggle(this)" role="switch" aria-checked="false" tabindex="0"></div>
+        </div>
+
+        <div class="option-row" data-price="40" data-name="Panier d'arrivée">
+          <div class="option-info">
+            <div class="option-name">Panier d'arrivée</div>
+            <div class="option-desc">Produits locaux & vin</div>
+          </div>
+          <div class="option-price">40 €</div>
+          <div class="toggle" onclick="togToggle(this)" role="switch" aria-checked="false" tabindex="0"></div>
+        </div>
+
+        <div class="option-row" data-price="15" data-name="Animal de compagnie" data-qty="true">
+          <div class="option-info">
+            <div class="option-name">Animal de compagnie</div>
+            <div class="option-desc">Ménage spécial · 15 €/animal</div>
+          </div>
+          <div class="qty-row">
+            <button class="qty-btn" type="button" onclick="qtyDec(this)" aria-label="Diminuer">−</button>
+            <span class="qty-val" data-qty="0">0</span>
+            <button class="qty-btn" type="button" onclick="qtyInc(this)" aria-label="Augmenter">+</button>
+          </div>
+        </div>
+
+        <div class="calc-total">
+          <div>
+            <div class="calc-total-label">Total à virer</div>
+            <div class="calc-total-items" id="total-items">Aucune option sélectionnée</div>
+          </div>
+          <div class="calc-total-val" id="total-amount">0 €</div>
+        </div>
+      </div>
+
+      <!-- BANK CARD -->
+      <div class="bank-card">
+        <div class="bank-card-inner">
+          <div class="bank-eyebrow">Coordonnées bancaires</div>
+          <div class="bank-title">Régler par virement</div>
+
+          <div class="iban-row">
+            <div class="iban-row-info">
+              <div class="iban-label">Bénéficiaire</div>
+              <div class="iban-value">SCI Séjour Cosy</div>
+            </div>
+          </div>
+
+          <div class="iban-row">
+            <div class="iban-row-info">
+              <div class="iban-label">IBAN</div>
+              <div class="iban-value">FR76 1234 5678 9012 3456 7890 123</div>
+            </div>
+            <button class="iban-copy" onclick="copyText('FR7612345678901234567890123',this)">Copier</button>
+          </div>
+
+          <div class="iban-row">
+            <div class="iban-row-info">
+              <div class="iban-label">BIC / SWIFT</div>
+              <div class="iban-value">AGRIFRPP123</div>
+            </div>
+            <button class="iban-copy" onclick="copyText('AGRIFRPP123',this)">Copier</button>
+          </div>
+
+          <div class="ref-box">
+            <div class="ref-label">★ Référence à indiquer obligatoirement</div>
+            <div class="ref-value" id="ref-display">Identifiez-vous plus haut →</div>
+            <div class="ref-note">
+              <span class="ref-note-icon">⚠</span>
+              <span>Cette référence permet le suivi automatique de votre paiement. Sans elle, l'attribution peut prendre plusieurs jours.</span>
+            </div>
+            <button class="ref-copy-full" id="ref-copy-btn" onclick="copyRef(this)">Copier la référence</button>
+          </div>
+
+          <div class="bank-confirm">
+            <span style="font-size:14px">✦</span>
+            <span>Une confirmation automatique vous est envoyée dans les 24 h ouvrées après réception du virement.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-mark">SC</div>
+    <div class="footer-quote">
+      Nous mettons tout en œuvre pour que votre Séjour Cosy soit aussi paisible que mémorable.
+    </div>
+    <div class="footer-contact">
+      <a href="mailto:contact@sejour-cosy.fr">contact@sejour-cosy.fr</a>
+      <a href="tel:+33600000000">+33 6 00 00 00 00</a>
+      <a href="#">Urgences 24/7</a>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-fine">
+      © 2026 Séjour Cosy · Hébergement géré avec soin
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ===========================================================
+   FAQ DATA
+   =========================================================== */
+const faqData = [
+  // ARRIVÉE
+  {cat:'arrivee', q:"À quelle heure puis-je arriver ?", a:"Le check-in standard se fait à partir de 16h. Pour une arrivée plus tôt, l'option 'Early check-in' est disponible dans la section suppléments. Le logement est en autonomie complète : aucune attente nécessaire.", tags:["heure","arrivee","horaire","checkin","early"]},
+  {cat:'arrivee', q:"Comment récupérer les clés ?", a:"Aucune clé physique : l'accès se fait par boîte à clés sécurisée à code, dont vous recevez le code 24h avant votre arrivée. Le code change après chaque séjour pour votre sécurité.", tags:["cles","code","boite","acces","entree"]},
+  {cat:'arrivee', q:"Y a-t-il un parking ?", a:"Stationnement gratuit dans la rue (zone bleue, disque obligatoire de 9h à 19h). Un parking public payant se trouve à 200m. Une place privée peut être réservée en supplément (15€/jour).", tags:["parking","voiture","stationnement","garage"]},
+  {cat:'arrivee', q:"Le logement est-il accessible PMR ?", a:"L'appartement se situe au 3ᵉ étage avec ascenseur disponible. Certains seuils peuvent être étroits — n'hésitez pas à nous contacter pour des besoins spécifiques avant votre arrivée.", tags:["pmr","handicap","accessible","fauteuil","ascenseur"]},
+
+  // LOGEMENT
+  {cat:'logement', q:"Quel est le code Wi-Fi ?", a:"Le réseau s'appelle 'SejourCosy_Guest'. Le mot de passe est inscrit sur la carte d'accueil posée sur la table à votre arrivée, ainsi que sur l'étiquette derrière la box dans le salon.", tags:["wifi","internet","reseau","mot de passe","connexion"]},
+  {cat:'logement', q:"Y a-t-il un lave-linge et comment l'utiliser ?", a:"Oui, lave-linge dans la salle de bain. Lessive en pod fournie sous l'évier. Programme conseillé : 'Coton 40°', durée environ 1h30. Évitez les lavages après 21h pour ne pas déranger les voisins.", tags:["lave-linge","machine","lessive","laver","linge"]},
+  {cat:'logement', q:"Comment fonctionne le chauffage / la climatisation ?", a:"Thermostat dans le salon, à droite de la porte d'entrée. Réglez la température avec les flèches haut/bas. Pour la clim : pressez 'mode' jusqu'à voir un flocon. Merci de ne pas dépasser 20°C en hiver et 24°C en été.", tags:["chauffage","climatisation","clim","temperature","thermostat","chaud","froid"]},
+  {cat:'logement', q:"Les animaux sont-ils acceptés ?", a:"Oui, sous conditions. Un supplément de 15€/animal s'applique pour le ménage spécifique. Merci de nous prévenir avant l'arrivée et d'éviter de laisser l'animal seul de manière prolongée.", tags:["animal","chien","chat","animaux","pet"]},
+  {cat:'logement', q:"Puis-je fumer dans le logement ?", a:"Le Séjour Cosy est strictement non-fumeur, y compris la cigarette électronique. Le balcon peut être utilisé en veillant à utiliser le cendrier mis à disposition. Tout manquement entraîne des frais de remise en état (150€).", tags:["fumer","cigarette","tabac","fumeur"]},
+  {cat:'logement', q:"Que faire en cas de panne ou de problème technique ?", a:"Contactez-nous immédiatement par message via la plateforme (Airbnb/Booking) ou par SMS. Pour les urgences (fuite, coupure totale), appelez-nous directement. Notre temps de réponse moyen est inférieur à 30 minutes.", tags:["panne","probleme","urgence","casse","reparation"]},
+
+  // QUARTIER
+  {cat:'quartier', q:"Où manger près du logement ?", a:"Trois adresses testées : 'Le Petit Bistrot' (5 min, cuisine traditionnelle), 'Pizzeria Mario' (10 min, feu de bois) et 'Saigon Express' (3 min, vietnamien à emporter). Carte complète dans le livret papier.", tags:["manger","restaurant","resto","diner","midi","cuisine"]},
+  {cat:'quartier', q:"Où est la boulangerie / supermarché le plus proche ?", a:"Boulangerie 'Aux Délices' à 2 min (7h–19h, fermée lundi). Supermarché Carrefour City à 5 min (8h–22h tous les jours). Marché bio le samedi matin Place Centrale.", tags:["boulangerie","supermarche","courses","epicerie","marche","pain"]},
+  {cat:'quartier', q:"Comment se déplacer dans la ville ?", a:"Métro ligne 7, station 'Maison Blanche' à 5 min à pied. Bus 67 et 84 à proximité. Vélos en libre-service à 200m. Le centre-ville est à 15 min en transports.", tags:["metro","bus","transport","velib","velo","tram","deplacer"]},
+  {cat:'quartier', q:"Que visiter dans le quartier ?", a:"Le parc de la Butte à 10 min offre une vue magnifique. Marché aux puces le dimanche matin. Le musée local est gratuit le premier dimanche du mois. Carte des incontournables sur la table.", tags:["visiter","activites","musee","parc","tourisme","sortir"]},
+
+  // DÉPART
+  {cat:'depart', q:"À quelle heure dois-je partir ?", a:"Le check-out est à 11h au plus tard. Pour partir plus tard, l'option 'Late check-out' permet de rester jusqu'à 14h moyennant 25€ — à sélectionner dans la section paiement.", tags:["depart","partir","checkout","heure","late"]},
+  {cat:'depart', q:"Que dois-je faire avant de partir ?", a:"Trois petites attentions : 1) Mettre les draps et serviettes utilisés dans le panier de la salle de bain. 2) Sortir les poubelles si pleines (local au RDC). 3) Refermer fenêtres et porte. Le code se réinitialise automatiquement.", tags:["partir","depart","menage","poubelles","cles","draps"]},
+  {cat:'depart', q:"Où laisser les clés ?", a:"Pas de clés physiques : il vous suffit de refermer la porte derrière vous. Aucune action requise sur la boîte à clés.", tags:["cles","laisser","rendre","boite"]},
+  {cat:'depart', q:"Comment laisser un avis ?", a:"Vous recevrez un lien automatique 24h après votre départ, par la plateforme (Airbnb ou Booking). Votre avis honnête nous aide énormément à nous améliorer et permet aux futurs voyageurs de choisir en confiance.", tags:["avis","review","commentaire","note","etoile"]},
+
+  // PAIEMENT
+  {cat:'paiement', q:"Comment payer un supplément ?", a:"Les suppléments se règlent par virement bancaire. Utilisez le calculateur ci-dessus, copiez l'IBAN, et indiquez bien la référence générée (votre nom + n° de réservation). Confirmation sous 24h ouvrées.", tags:["payer","paiement","virement","supplement","argent"]},
+  {cat:'paiement', q:"Acceptez-vous les paiements en espèces / carte ?", a:"Pour des raisons de transparence comptable, seul le virement bancaire est accepté pour les suppléments. Cela permet d'émettre une facture nominative immédiatement.", tags:["especes","cash","carte","cb","liquide"]},
+  {cat:'paiement', q:"Quand dois-je payer le supplément ?", a:"Idéalement avant la prestation pour les early check-in et paniers d'arrivée. Pour le ménage et le late check-out, le paiement peut se faire jusqu'à 24h après le service.", tags:["quand","delai","paiement","date"]},
+  {cat:'paiement', q:"Puis-je obtenir une facture ?", a:"Oui, automatiquement. Une facture nominative est émise et envoyée par email dès réception du virement. Pour les voyages d'affaires, communiquez-nous les coordonnées de votre entreprise au préalable.", tags:["facture","note","entreprise","professionnel","tva"]},
+];
+
+/* ===========================================================
+   FAQ FILTERING & RENDER
+   =========================================================== */
+let currentCat = 'all';
+const catLabels = {arrivee:'Arrivée',logement:'Logement',quartier:'Quartier',depart:'Départ',paiement:'Paiement',all:'Toutes catégories'};
+
+function renderFaq(filtered = null){
+  const list = document.getElementById('faq-list');
+  const empty = document.getElementById('faq-empty');
+  const count = document.getElementById('faq-count');
+  const items = filtered || faqData;
+  count.textContent = `${items.length} réponse${items.length > 1 ? 's' : ''} disponible${items.length > 1 ? 's' : ''}`;
+  if(items.length === 0){
+    list.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+  list.innerHTML = items.map((item) => {
+    const catLabel = catLabels[item.cat] || item.cat;
+    return `
+      <article class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
+          <span><span class="faq-tag">${catLabel}</span>${item.q}</span>
+          <span class="faq-q-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </span>
+        </button>
+        <div class="faq-a"><p>${item.a}</p></div>
+      </article>`;
+  }).join('');
+}
+function toggleFaq(btn){
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(x => {
+    x.classList.remove('open');
+    x.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+  });
+  if(!wasOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+  }
+}
+function setCategory(cat,btn){
+  currentCat = cat;
+  document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('faq-active-cat').textContent = catLabels[cat];
+  filterFaq();
+}
+function filterFaq(){
+  const q = document.getElementById('faq-input').value.toLowerCase().trim();
+  let filtered = faqData;
+  if(currentCat !== 'all') filtered = filtered.filter(i => i.cat === currentCat);
+  if(q){
+    filtered = filtered.filter(i =>
+      i.q.toLowerCase().includes(q) ||
+      i.a.toLowerCase().includes(q) ||
+      i.tags.some(t => t.includes(q))
+    );
+  }
+  renderFaq(filtered);
+}
+renderFaq();
+
+/* ===========================================================
+   GUEST FORM & DATA STORAGE
+   =========================================================== */
+function handleCheckin(e){
+  e.preventDefault();
+  const name = document.getElementById('guest-name').value.trim();
+  const ref = document.getElementById('guest-ref').value.trim();
+  const date = document.getElementById('guest-date').value;
+  const data = {name, ref, date, savedAt: new Date().toISOString()};
+  try{
+    if(window.storage && window.storage.set){
+      window.storage.set('sejour-cosy:guest', JSON.stringify(data));
+    }else{
+      // Fallback: in-memory only (artifact storage not available)
+      window.__guestData = data;
+    }
+  }catch(err){window.__guestData = data}
+  const saved = document.getElementById('guest-saved');
+  const savedText = document.getElementById('guest-saved-text');
+  savedText.textContent = `Enregistré, ${name.split(' ')[0]}. Vos données sont prêtes.`;
+  saved.classList.add('show');
+  updateRef(name, ref);
+}
+function updateRef(name, ref){
+  const display = document.getElementById('ref-display');
+  if(name && ref){
+    const cleanName = name.split(' ').slice(-1)[0].toUpperCase().replace(/[^A-Z0-9]/g,'');
+    display.textContent = `${cleanName} ${ref}`;
+  }else if(name){
+    const cleanName = name.split(' ').slice(-1)[0].toUpperCase().replace(/[^A-Z0-9]/g,'');
+    display.textContent = cleanName;
+  }else{
+    display.textContent = 'Identifiez-vous plus haut →';
+  }
+}
+// Restore data
+(async () => {
+  try{
+    if(window.storage && window.storage.get){
+      const r = await window.storage.get('sejour-cosy:guest');
+      if(r && r.value){
+        const d = JSON.parse(r.value);
+        if(d.name) document.getElementById('guest-name').value = d.name;
+        if(d.ref) document.getElementById('guest-ref').value = d.ref;
+        if(d.date) document.getElementById('guest-date').value = d.date;
+        updateRef(d.name, d.ref);
+        const saved = document.getElementById('guest-saved');
+        const savedText = document.getElementById('guest-saved-text');
+        savedText.textContent = `Bon retour, ${d.name.split(' ')[0]}.`;
+        saved.classList.add('show');
+      }
+    }
+  }catch(e){}
+})();
+// Live update of reference
+['guest-name','guest-ref'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el) el.addEventListener('input',()=>{
+    updateRef(
+      document.getElementById('guest-name').value.trim(),
+      document.getElementById('guest-ref').value.trim()
+    );
+  });
+});
+
+/* ===========================================================
+   LANGUAGE
+   =========================================================== */
+function setLang(lang, btn){
+  document.querySelectorAll('.lang button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if(lang === 'en'){
+    // English version available on request
+    setTimeout(() => {
+      alert('English version coming soon. For now, please contact your host directly.');
+      document.querySelectorAll('.lang button')[0].classList.add('active');
+      btn.classList.remove('active');
+    }, 100);
+  }
+}
+
+/* ===========================================================
+   PAYMENT CALCULATOR
+   =========================================================== */
+function togToggle(t){
+  const isOn = t.classList.toggle('on');
+  t.setAttribute('aria-checked', isOn ? 'true' : 'false');
+  t.parentElement.classList.toggle('selected', isOn);
+  recalc();
+}
+function qtyInc(btn){
+  const span = btn.parentElement.querySelector('.qty-val');
+  let q = parseInt(span.dataset.qty);
+  q = Math.min(q + 1, 5);
+  span.dataset.qty = q;
+  span.textContent = q;
+  btn.parentElement.parentElement.classList.toggle('selected', q > 0);
+  recalc();
+}
+function qtyDec(btn){
+  const span = btn.parentElement.querySelector('.qty-val');
+  let q = parseInt(span.dataset.qty);
+  q = Math.max(q - 1, 0);
+  span.dataset.qty = q;
+  span.textContent = q;
+  btn.parentElement.parentElement.classList.toggle('selected', q > 0);
+  recalc();
+}
+function recalc(){
+  let total = 0;
+  const items = [];
+  document.querySelectorAll('.option-row').forEach(row => {
+    const price = parseFloat(row.dataset.price);
+    const name = row.dataset.name;
+    const tog = row.querySelector('.toggle');
+    const qty = row.querySelector('.qty-val');
+    if(tog && tog.classList.contains('on')){
+      total += price;
+      items.push(name);
+    }else if(qty){
+      const q = parseInt(qty.dataset.qty);
+      if(q > 0){
+        total += price * q;
+        items.push(`${name} ×${q}`);
+      }
+    }
+  });
+  const totalEl = document.getElementById('total-amount');
+  totalEl.textContent = total + ' €';
+  totalEl.classList.toggle('has-amount', total > 0);
+  document.getElementById('total-items').textContent = items.length ? items.join(' · ') : 'Aucune option sélectionnée';
+}
+
+/* ===========================================================
+   CLIPBOARD HELPERS
+   =========================================================== */
+function copyText(txt, btn){
+  const fallbackCopy = (text) => {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    try{document.execCommand('copy')}catch(e){}
+    document.body.removeChild(ta);
+  };
+  const onSuccess = () => {
+    const orig = btn.textContent;
+    btn.textContent = '✓ Copié';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.classList.remove('copied');
+    }, 1800);
+  };
+  if(navigator.clipboard && window.isSecureContext){
+    navigator.clipboard.writeText(txt).then(onSuccess).catch(() => {
+      fallbackCopy(txt);
+      onSuccess();
+    });
+  }else{
+    fallbackCopy(txt);
+    onSuccess();
+  }
+}
+function copyRef(btn){
+  const ref = document.getElementById('ref-display').textContent.trim();
+  if(ref.includes('Identifiez') || ref.includes('→')){
+    const orig = btn.textContent;
+    btn.textContent = '⚠ Identifiez-vous d\'abord';
+    setTimeout(() => btn.textContent = orig, 2200);
+    return;
+  }
+  copyText(ref, btn);
+}
+
+/* ===========================================================
+   NAV SCROLL EFFECT
+   =========================================================== */
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  const scrolled = window.scrollY;
+  if(scrolled > 60){
+    nav.style.boxShadow = '0 2px 12px rgba(42,37,32,.06)';
+  }else{
+    nav.style.boxShadow = 'none';
+  }
+  lastScroll = scrolled;
+});
+
+/* ===========================================================
+   MARQUEE: duplicate items for seamless scroll
+   =========================================================== */
+(() => {
+  const track = document.getElementById('marquee-track');
+  if(track){
+    const clone = track.innerHTML;
+    track.innerHTML = clone + clone;
+  }
+})();
+</script>
+</body>
+</html>
